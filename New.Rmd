@@ -1,0 +1,28 @@
+---
+title: "FinalTask"
+author: "Irina Shcheglova"
+date: '11 July 2018  '
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(rio)
+library(skimr)
+library(Ecdat)
+data <-incomeInequality 
+glimpse (data)
+head (data)
+tail (data)
+#All data is quantitative 
+skim (data)#dataset Income Inequality from Ecdat 
+#Dataset contains 66 observations & 22 variables 
+qplot(data = data, x = personsPerFamily)
+qplot(data = data, x= PopulationK)
+qplot (data = data, x = PopulationK, y=Year)
+library (corrplot)
+datacor<- cor(data)
+datacor
+
+```
+
