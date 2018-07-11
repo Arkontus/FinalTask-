@@ -2,7 +2,9 @@
 title: "FinalTask"
 author: "Irina Shcheglova"
 date: '11 July 2018  '
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r}
@@ -23,6 +25,14 @@ qplot (data = data, x = PopulationK, y=Year)
 library (corrplot)
 datacor<- cor(data)
 datacor
-
+library(cluster) # кластерный анализ
+library(factoextra) # визуализации kmeans, pca,
+library(dendextend) # визуализация дендрограмм
+k_means_data<- kmeans(data, centers = 3)
+k_means_data
+attributes(k_means_data)
+tidy(k_means_data)
+fviz_cluster(object = k_means_data, data = data,
+             ellipse.type = 'convex')
 ```
 
